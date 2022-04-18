@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+{% block mainContent %}
+{{x}}
+<br>
+<table border=1>
+{% for line in t %}
+<tr>
+{% for item in line %}
+   <td> {{item}} </td>
+{% endfor %}
+</tr>
+{% endfor %}
+</table>
+nom: {{p.nom}} <br>
+prenom: {{p.prenom}}<br>
+{% endblock %}
