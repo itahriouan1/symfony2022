@@ -73,4 +73,15 @@ class StageRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function findByEntreprise($value)
+    {
+        return $this->createQueryBuilder('s')
+            ->andWhere('s.entreprise = :val')
+            ->setParameter('val', $value)
+            ->orderBy('s.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }

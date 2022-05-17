@@ -1,0 +1,8 @@
+{% extends "base.html.twig" %}
+{% block mainContent %}
+<table border=1>
+{% for stage in stages %}
+    <tr><td>{{stage.id}}</td><td>{{stage.sujet}}</td><td>{{stage.entreprise}}</td><td>{{stage.dateDebut|date('Y-m-d')}}</td><td>{{stage.dateFin|date('Y-m-d')}}</td><td>{{stage.description}}</td></tr>
+{% endfor %}
+</table>
+{% endblock %}
