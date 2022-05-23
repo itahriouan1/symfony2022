@@ -1,4 +1,52 @@
 {% extends "base.html.twig" %}
 {% block mainContent %}
-{{form(form)}}
+{{form_start(form)}}
+<table>
+<tr>
+<td>
+{{form_label(form.entreprise)}}
+</td>
+<td>
+{{form_widget(form.entreprise, {'attr': {'class':'form-control'}})}}
+</td>
+</tr>
+<tr>
+<td>
+{{form_label(form.sujet)}}
+</td>
+<td>
+{{form_widget(form.sujet)}}
+</td>
+</tr>
+<tr>
+<td>
+{{form_label(form.dateDebut)}}
+</td>
+<td>
+{{form_widget(form.dateDebut)}}
+</td>
+</tr>
+<tr>
+<td>
+{{form_label(form.dateFin)}}
+</td>
+<td>
+{{form_widget(form.dateFin)}}
+</td>
+</tr>
+<tr>
+<td>
+{{form_label(form.description)}}
+</td>
+<td>
+{{form_widget(form.description)}}
+</td>
+</tr>
+</table>
+
+{{form_label(form.ok)}}
+
+{{form_widget(form.ok)}}
+
+{{form_end(form)}}
 {% endblock %}

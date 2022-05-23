@@ -42,6 +42,11 @@ class Stage
      */
     private $description;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Rapport::class, mappedBy="stage", cascade={"persist", "remove"})
+     */
+    private $rapport;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +108,23 @@ class Stage
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getRapport(): ?Rapport
+    {
+        return $this->rapport;
+    }
+
+    public function setRapport(Rapport $rapport): self
+    {
+        // set the owning side of the relation if necessary
+        if ($rapport->getStage() !== $this) {
+            $rapport->setStage($this);
+        }
+
+        $this->rapport = $rapport;
 
         return $this;
     }

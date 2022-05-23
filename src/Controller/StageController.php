@@ -45,8 +45,14 @@ class StageController extends AbstractController
      */
     public function form(ManagerRegistry $managerRegistry, Request $request): Response
     {
-        $form = $this->createForm(StageType::class);
+        $stage = new Stage();
+        $form = $this->createForm(StageType::class, $stage);
         $form->handleRequest($request);
+        $em = $managerRegistry->getManager();
+        if($form->isSubmitted()&&$form->isValid()){
+            $em->persist($stage);
+            $em->flush();  
+        }        
         $formView =$form->createView();
         return $this->render('stage/form.html.twig',['form'=>$formView]);
     }
