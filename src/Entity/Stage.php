@@ -47,6 +47,7 @@ class Stage
      */
     private $rapport;
 
+
     public function getId(): ?int
     {
         return $this->id;
@@ -128,4 +129,6 @@ class Stage
 
         return $this;
     }
+
+    
 }
